@@ -2,7 +2,7 @@
 
 namespace GrupparbetePolisen1984;
 
-public class Uttryckingar
+public class Polis
 {
     static void Main(string[] args)
     { 
