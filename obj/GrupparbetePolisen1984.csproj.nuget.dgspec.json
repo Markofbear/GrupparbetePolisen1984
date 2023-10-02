@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\lager\\OneDrive\\Desktop\\Plugg\\GrupparbetePolisen1984\\GrupparbetePolisen1984.csproj": {}
+    "C:\\Users\\lager\\OneDrive\\Desktop\\Plugg\\GrupparbetePolisen1984\\GrupparbetePolisen1984.csproj": {}
   },
   "projects": {
-    "c:\\Users\\lager\\OneDrive\\Desktop\\Plugg\\GrupparbetePolisen1984\\GrupparbetePolisen1984.csproj": {
+    "C:\\Users\\lager\\OneDrive\\Desktop\\Plugg\\GrupparbetePolisen1984\\GrupparbetePolisen1984.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\lager\\OneDrive\\Desktop\\Plugg\\GrupparbetePolisen1984\\GrupparbetePolisen1984.csproj",
+        "projectUniqueName": "C:\\Users\\lager\\OneDrive\\Desktop\\Plugg\\GrupparbetePolisen1984\\GrupparbetePolisen1984.csproj",
         "projectName": "GrupparbetePolisen1984",
-        "projectPath": "c:\\Users\\lager\\OneDrive\\Desktop\\Plugg\\GrupparbetePolisen1984\\GrupparbetePolisen1984.csproj",
+        "projectPath": "C:\\Users\\lager\\OneDrive\\Desktop\\Plugg\\GrupparbetePolisen1984\\GrupparbetePolisen1984.csproj",
         "packagesPath": "C:\\Users\\lager\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\lager\\OneDrive\\Desktop\\Plugg\\GrupparbetePolisen1984\\obj\\",
+        "outputPath": "C:\\Users\\lager\\OneDrive\\Desktop\\Plugg\\GrupparbetePolisen1984\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lager\\AppData\\Roaming\\NuGet\\NuGet.Config",
