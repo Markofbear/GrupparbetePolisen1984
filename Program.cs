@@ -1,24 +1,18 @@
-﻿namespace GrupparbetePolisen1984;
+﻿using System.Security.Cryptography.X509Certificates;
+
+namespace GrupparbetePolisen1984;
 
 public class Uttryckingar
 {
     static void Main(string[] args)
-    {
-        System.Console.WriteLine("Ange typ av brott:");
-        string Typ = Console.ReadLine(); 
+    { 
+        int val;
+        switch(val)
+        {
 
-        System.Console.WriteLine("Ange plats:");
-        string Plats = Console.ReadLine(); 
+        System.Console.WriteLine("1: Registrering av uttryckningar \n 2: Rapporter \n 3:");
 
-        System.Console.WriteLine("Ange tid:");
-        double Tid = Convert.ToDouble(Console.ReadLine());
-
-        System.Console.WriteLine("Ange vilka poliser som deltog:");
-        string Poliser = Console.ReadLine(); 
-        
-        System.Console.WriteLine(Typ + "\n" + Plats + "\n" + Tid + "\n" + Poliser);
-
-        System.Console.WriteLine();
+        case 1:
 
         System.Console.WriteLine("Ange typ av brott:");
         string Typ = Console.ReadLine(); 
@@ -33,6 +27,11 @@ public class Uttryckingar
         string Poliser = Console.ReadLine(); 
         
         System.Console.WriteLine(Typ + "\n" + Plats + "\n" + Tid + "\n" + Poliser);
+        break;
 
+        case 2:
+
+    
+        }
     }
 }
