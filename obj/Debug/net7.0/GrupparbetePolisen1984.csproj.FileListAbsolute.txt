@@ -1,0 +1,14 @@
+C:\Users\lager\OneDrive\Desktop\Plugg\GrupparbetePolisen1984\obj\Debug\net7.0\GrupparbetePolisen1984.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\lager\OneDrive\Desktop\Plugg\GrupparbetePolisen1984\obj\Debug\net7.0\GrupparbetePolisen1984.AssemblyInfoInputs.cache
+C:\Users\lager\OneDrive\Desktop\Plugg\GrupparbetePolisen1984\obj\Debug\net7.0\GrupparbetePolisen1984.AssemblyInfo.cs
+C:\Users\lager\OneDrive\Desktop\Plugg\GrupparbetePolisen1984\obj\Debug\net7.0\GrupparbetePolisen1984.csproj.CoreCompileInputs.cache
+C:\Users\lager\OneDrive\Desktop\Plugg\GrupparbetePolisen1984\bin\Debug\net7.0\GrupparbetePolisen1984.exe
+C:\Users\lager\OneDrive\Desktop\Plugg\GrupparbetePolisen1984\bin\Debug\net7.0\GrupparbetePolisen1984.deps.json
+C:\Users\lager\OneDrive\Desktop\Plugg\GrupparbetePolisen1984\bin\Debug\net7.0\GrupparbetePolisen1984.runtimeconfig.json
+C:\Users\lager\OneDrive\Desktop\Plugg\GrupparbetePolisen1984\bin\Debug\net7.0\GrupparbetePolisen1984.dll
+C:\Users\lager\OneDrive\Desktop\Plugg\GrupparbetePolisen1984\bin\Debug\net7.0\GrupparbetePolisen1984.pdb
+C:\Users\lager\OneDrive\Desktop\Plugg\GrupparbetePolisen1984\obj\Debug\net7.0\GrupparbetePolisen1984.dll
+C:\Users\lager\OneDrive\Desktop\Plugg\GrupparbetePolisen1984\obj\Debug\net7.0\refint\GrupparbetePolisen1984.dll
+C:\Users\lager\OneDrive\Desktop\Plugg\GrupparbetePolisen1984\obj\Debug\net7.0\GrupparbetePolisen1984.pdb
+C:\Users\lager\OneDrive\Desktop\Plugg\GrupparbetePolisen1984\obj\Debug\net7.0\GrupparbetePolisen1984.genruntimeconfig.cache
+C:\Users\lager\OneDrive\Desktop\Plugg\GrupparbetePolisen1984\obj\Debug\net7.0\ref\GrupparbetePolisen1984.dll
