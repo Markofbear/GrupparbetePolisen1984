@@ -6,7 +6,7 @@ public class Uttryckingar
 {
     static void Main(string[] args)
     { 
-        int val;
+        int val; //test
         switch(val)
         {
 
