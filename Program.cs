@@ -7,8 +7,8 @@ namespace GrupparbetePolisen1984
     {
         static void Main(string[] args)
         {
-            List<string> brottrapport = new List<string>(); // Startar en lista som sparar registrering
-            List<string> brottrapport2 = new List<string>(); // Startar en lista för rapporter från case 2
+            List<string> BrottRapport = new List<string>(); // Startar en lista som sparar registrering
+            List<string> BrottRapport2 = new List<string>(); // Startar en lista för Rapporter från case 2
 
             while (true)
             {
@@ -24,15 +24,15 @@ namespace GrupparbetePolisen1984
                     switch (val)
                     {
                         case 1:
-                            Case1.Registrering(brottrapport);
+                            Case1.Registrering(BrottRapport);
                             break;
 
                         case 2:
-                            Case2.Rapporter(brottrapport2);
+                            Case2.Rapporter(BrottRapport2);
                             break;
 
                         case 4:
-                            Case4.VisaRapporter(brottrapport, brottrapport2);
+                            Case4.VisaRapporter(BrottRapport, BrottRapport2);
                             break;
 
                         case 0:
@@ -53,7 +53,7 @@ namespace GrupparbetePolisen1984
 
     static class Case1
     {
-        public static void Registrering(List<string> brottrapport)
+        public static void Registrering(List<string> BrottRapport)
         {
             Console.WriteLine("Ange typ av brott:");
             string Typ = Console.ReadLine();
@@ -61,32 +61,33 @@ namespace GrupparbetePolisen1984
             Console.WriteLine("Ange plats:");
             string Plats = Console.ReadLine();
 
-            Console.WriteLine("Ange tid:");
-            double Tid;
-            if (double.TryParse(Console.ReadLine(), out Tid))
-            {
-                Console.WriteLine("Ange vilka poliser som deltog:");
-                string Poliser = Console.ReadLine();
+            Console.WriteLine("Ange tid (hh:mm:ss):");
+                TimeSpan Tid;
+                if (TimeSpan.TryParse(Console.ReadLine(), out Tid))
+                    {
+                        Console.WriteLine("Ange vilka poliser som deltog:");
+                        string Poliser = Console.ReadLine();
 
-                string rapport = $"{Typ}\n{Plats}\n{Tid}\n{Poliser}\n"; // Skapar en rapport 
-                brottrapport.Add(rapport); // Sparar rapport i listan
-            }
-            else
-            {
-                Console.WriteLine("Ej en tidpunkt! Try again.");
+                        string Rapport = $"{Typ}\n{Plats}\n{Tid}\n{Poliser}\n"; // Skapar en Rapport 
+                        BrottRapport.Add(Rapport); // Sparar Rapport i listan
+                    }
+                    else
+                    {
+                        Console.WriteLine("Ej en giltig tidpunkt! Försök igen.");
+                    }
             }
         }
     }
 
     static class Case2
     {
-        public static void Rapporter(List<string> brottrapport2)
+        public static void Rapporter(List<string> BrottRapport2)
         {
             Console.WriteLine("Ange Rapportnummer:");
-            double rapportnr;
-            if (!double.TryParse(Console.ReadLine(), out rapportnr))
+            double Rapportnr;
+            if (!double.TryParse(Console.ReadLine(), out Rapportnr))
             {
-                Console.WriteLine("Ej ett rapportnummer försök igen!");
+                Console.WriteLine("Ej ett Rapportnummer försök igen!");
                 return;
             }
 
@@ -104,27 +105,27 @@ namespace GrupparbetePolisen1984
             Console.WriteLine("Beskriv vad som hände kortfattat:");
             string beskrivning = Console.ReadLine();
 
-            string rapport2 = $"{rapportnr}\n{datum}\n{polisstation}\n{beskrivning}"; // Skapar en rapport 
-            brottrapport2.Add(rapport2); // Sparar rapport i den andra listan
+            string Rapport2 = $"{Rapportnr}\n{datum}\n{polisstation}\n{beskrivning}"; // Skapar en Rapport 
+            BrottRapport2.Add(Rapport2); // Sparar Rapport i den andra listan
         }
     }
 
     static class Case4
     {
-        public static void VisaRapporter(List<string> brottrapport, List<string> brottrapport2)
+        public static void VisaRapporter(List<string> BrottRapport, List<string> BrottRapport2)
         {
             Console.WriteLine("Rapporter från case 1:");
-            foreach (string rapport in brottrapport)
+            foreach (string Rapport in BrottRapport)
             {
-                Console.WriteLine(rapport);
+                Console.WriteLine(Rapport);
             }
 
             Console.WriteLine("Rapporter från case 2:");
-            foreach (string rapport in brottrapport2)
+            foreach (string Rapport in BrottRapport2)
             {
-                Console.WriteLine(rapport);
+                Console.WriteLine(Rapport);
             }
         }
     }
-}
+
 
