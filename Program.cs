@@ -16,7 +16,7 @@ namespace GrupparbetePolisen1984
 
                 Console.WriteLine("1: Registrering av uttryckningar");
                 Console.WriteLine("2: Rapporter");
-                Console.WriteLine("4: Information???");
+                Console.WriteLine("4: InformationMEDSORT???");
                 Console.WriteLine("0: Exit");
 
                 if (int.TryParse(Console.ReadLine(), out val)) // Om valet är en annan än siffran skicka till else
@@ -39,13 +39,13 @@ namespace GrupparbetePolisen1984
                             return;
 
                         default:
-                            Console.WriteLine("ERRORTEST");
+                            Console.WriteLine("ERRORTEST"); //FIX *********
                             break;
                     }
                 }
                 else
                 {
-                    Console.WriteLine("ERRORTESTÄRDETENFÖRMYCKET??");
+                    Console.WriteLine("ERRORTESTÄRDETENFÖRMYCKET??"); //FIXIT ********
                 }
             }
         }
@@ -53,7 +53,7 @@ namespace GrupparbetePolisen1984
 
     static class Case1
     {
-        public static void Registrering(List<string> BrottRapport)
+        public static void Registrering(List<string> BrottRapport) // LÄS PÅ MERA OM LIST (IGENFFS)
         {
             Console.WriteLine("Ange typ av brott:");
             string Typ = Console.ReadLine();
@@ -61,8 +61,8 @@ namespace GrupparbetePolisen1984
             Console.WriteLine("Ange plats:");
             string Plats = Console.ReadLine();
 
-            Console.WriteLine("Ange tid (hh:mm:ss):");
-                TimeSpan Tid;
+            Console.WriteLine("Ange tid (hh:mm:ss):"); // ***TIMMEOMINUT*****
+                TimeSpan Tid; // TimeSpan nytt och fräscht (TM) 
                 if (TimeSpan.TryParse(Console.ReadLine(), out Tid))
                     {
                         Console.WriteLine("Ange vilka poliser som deltog:");
@@ -84,15 +84,15 @@ namespace GrupparbetePolisen1984
         public static void Rapporter(List<string> BrottRapport2)
         {
             Console.WriteLine("Ange Rapportnummer:");
-            double Rapportnr;
-            if (!double.TryParse(Console.ReadLine(), out Rapportnr))
+            double Rapportnr; // sätta in max 4a siffror?
+            if (!double.TryParse(Console.ReadLine(), out Rapportnr)) // ! igen ***LÄS*** ! ifall double failar?? VARFÖR INTE TIDIGARE??
             {
                 Console.WriteLine("Ej ett Rapportnummer försök igen!");
                 return;
             }
 
             Console.WriteLine("Ange datum:");
-            double datum;
+            double datum; // ÄNDRA TILL DATUM TIMESPAN *************
             if (!double.TryParse(Console.ReadLine(), out datum))
             {
                 Console.WriteLine("Ej ett datum försök igen!");
@@ -106,7 +106,7 @@ namespace GrupparbetePolisen1984
             string beskrivning = Console.ReadLine();
 
             string Rapport2 = $"{Rapportnr}\n{datum}\n{polisstation}\n{beskrivning}"; // Skapar en Rapport 
-            BrottRapport2.Add(Rapport2); // Sparar Rapport i den andra listan
+            BrottRapport2.Add(Rapport2); // Sparar Rapport i den andra listan ****VARFÖRRAPPORT2INTERAPPORT?****
         }
     }
 
@@ -114,8 +114,8 @@ namespace GrupparbetePolisen1984
     {
         public static void VisaRapporter(List<string> BrottRapport, List<string> BrottRapport2)
         {
-            Console.WriteLine("Rapporter från case 1:");
-            foreach (string Rapport in BrottRapport)
+            Console.WriteLine("Rapporter från case 1:"); // SORT här??
+            foreach (string Rapport in BrottRapport) // in commando som jag hittat online, ****LÄSPÅLÄSPÅ*****
             {
                 Console.WriteLine(Rapport);
             }
