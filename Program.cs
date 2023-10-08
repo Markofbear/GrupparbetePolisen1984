@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 
 namespace GrupparbetePolisen1984
 {
@@ -64,7 +65,8 @@ namespace GrupparbetePolisen1984
             Console.WriteLine("Ange tid (hh:mm)");
                 TimeSpan Tid; // TimeSpan nytt och fräscht (TM) 
                 if (!TimeSpan.TryParse(Console.ReadLine(), out Tid))
-                    {
+                    {   
+                        Console.Clear();
                         Console.WriteLine("Ej en giltig tidpunkt! Återgår till val!");
                         return;
                     }
@@ -83,17 +85,18 @@ namespace GrupparbetePolisen1984
         public static void Rapporter(List<string> Brottrapport)
         {
             Console.WriteLine("Ange Rapportnummer:");
-            int Rapportnr; // sätta in max 4a siffror?
+            int Rapportnr; 
             if (!int.TryParse(Console.ReadLine(), out Rapportnr)) // ! igen ***LÄS*** ! ifall double failar?? VARFÖR INTE TIDIGARE??
-            {
-                Console.WriteLine("Ej ett Rapportnummer försök igen!");
+            {   
+                Console.Clear();
+                Console.WriteLine("Ej ett rapportnummer försök igen!");
                 return;
             }
 
-            Console.WriteLine("Ange datum:");
-            double datum; // ÄNDRA TILL DATUM TIMESPAN *************
-            if (!double.TryParse(Console.ReadLine(), out datum))
-            {
+            Console.WriteLine("Ange datum(ÅÅÅÅ-MM-DD):"); 
+            DateTime datum; // DateTime Fresher than fresh (TM)
+            if (!DateTime.TryParse(Console.ReadLine(), out datum))
+            {   Console.Clear();
                 Console.WriteLine("Ej ett datum! Återgår till val!");
                 return;
             }
