@@ -7,8 +7,8 @@ namespace GrupparbetePolisen1984
     {
         static void Main(string[] args)
         {
-            List<string> BrottRapport = new List<string>(); // Startar en lista som sparar registrering
-            List<string> BrottRapport2 = new List<string>(); // Startar en lista för Rapporter från case 2
+            List<string> Registrering = new List<string>(); // Startar en lista som sparar registrering
+            List<string> Brottrapport = new List<string>(); // Startar en lista för Rapporter från case 2
 
             while (true)
             {
@@ -24,15 +24,15 @@ namespace GrupparbetePolisen1984
                     switch (val)
                     {
                         case 1:
-                            Case1.Registrering(BrottRapport);
+                            Case1.Registrering(Registrering);
                             break;
 
                         case 2:
-                            Case2.Rapporter(BrottRapport2);
+                            Case2.Rapporter(Brottrapport);
                             break;
 
                         case 4:
-                            Case4.VisaRapporter(BrottRapport, BrottRapport2);
+                            Case4.VisaRapporter(Registrering, Brottrapport);
                             break;
 
                         case 0:
@@ -53,7 +53,7 @@ namespace GrupparbetePolisen1984
 
     static class Case1
     {
-        public static void Registrering(List<string> BrottRapport) // LÄS PÅ MERA OM LIST (IGENFFS)
+        public static void Registrering(List<string> Registrering)
         {
             Console.WriteLine("Ange typ av brott:");
             string Typ = Console.ReadLine();
@@ -61,31 +61,30 @@ namespace GrupparbetePolisen1984
             Console.WriteLine("Ange plats:");
             string Plats = Console.ReadLine();
 
-            Console.WriteLine("Ange tid (hh:mm:ss):"); // ***TIMMEOMINUT*****
+            Console.WriteLine("Ange tid (hh:mm)");
                 TimeSpan Tid; // TimeSpan nytt och fräscht (TM) 
-                if (TimeSpan.TryParse(Console.ReadLine(), out Tid))
+                if (!TimeSpan.TryParse(Console.ReadLine(), out Tid))
                     {
-                        Console.WriteLine("Ange vilka poliser som deltog:");
+                        Console.WriteLine("Ej en giltig tidpunkt! Återgår till val!");
+                        return;
+                    }
+                    
+                       Console.WriteLine("Ange vilka poliser som deltog:");
                         string Poliser = Console.ReadLine();
 
                         string Rapport = $"{Typ}\n{Plats}\n{Tid}\n{Poliser}\n"; // Skapar en Rapport 
-                        BrottRapport.Add(Rapport); // Sparar Rapport i listan
-                    }
-                    else
-                    {
-                        Console.WriteLine("Ej en giltig tidpunkt! Försök igen.");
-                    }
+                        Registrering.Add(Rapport); // Sparar Rapport i listan
             }
         }
     }
 
     static class Case2
     {
-        public static void Rapporter(List<string> BrottRapport2)
+        public static void Rapporter(List<string> Brottrapport)
         {
             Console.WriteLine("Ange Rapportnummer:");
-            double Rapportnr; // sätta in max 4a siffror?
-            if (!double.TryParse(Console.ReadLine(), out Rapportnr)) // ! igen ***LÄS*** ! ifall double failar?? VARFÖR INTE TIDIGARE??
+            int Rapportnr; // sätta in max 4a siffror?
+            if (!int.TryParse(Console.ReadLine(), out Rapportnr)) // ! igen ***LÄS*** ! ifall double failar?? VARFÖR INTE TIDIGARE??
             {
                 Console.WriteLine("Ej ett Rapportnummer försök igen!");
                 return;
@@ -95,7 +94,7 @@ namespace GrupparbetePolisen1984
             double datum; // ÄNDRA TILL DATUM TIMESPAN *************
             if (!double.TryParse(Console.ReadLine(), out datum))
             {
-                Console.WriteLine("Ej ett datum försök igen!");
+                Console.WriteLine("Ej ett datum! Återgår till val!");
                 return;
             }
 
@@ -106,22 +105,22 @@ namespace GrupparbetePolisen1984
             string beskrivning = Console.ReadLine();
 
             string Rapport2 = $"{Rapportnr}\n{datum}\n{polisstation}\n{beskrivning}"; // Skapar en Rapport 
-            BrottRapport2.Add(Rapport2); // Sparar Rapport i den andra listan ****VARFÖRRAPPORT2INTERAPPORT?****
+            Brottrapport.Add(Rapport2); // Sparar Rapport i den andra listan ****VARFÖRRAPPORT2INTERAPPORT?****
         }
     }
 
     static class Case4
     {
-        public static void VisaRapporter(List<string> BrottRapport, List<string> BrottRapport2)
+        public static void VisaRapporter(List<string> Registrering, List<string> Brottrapport)
         {
             Console.WriteLine("Rapporter från case 1:"); // SORT här??
-            foreach (string Rapport in BrottRapport) // in commando som jag hittat online, ****LÄSPÅLÄSPÅ*****
+            foreach (string Rapport in Registrering) // in commando som jag hittat online, ****LÄSPÅLÄSPÅ*****
             {
                 Console.WriteLine(Rapport);
             }
 
             Console.WriteLine("Rapporter från case 2:");
-            foreach (string Rapport in BrottRapport2)
+            foreach (string Rapport in Brottrapport)
             {
                 Console.WriteLine(Rapport);
             }
