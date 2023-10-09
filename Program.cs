@@ -10,17 +10,19 @@ namespace GrupparbetePolisen1984
         {
             List<string> Registrering = new List<string>(); // Startar en lista som sparar registrering
             List<string> Brottrapport = new List<string>(); // Startar en lista för Rapporter från case 2
-
+            List<string> Personal = new List<string>();
             while (true)
             {
                 int val;
+                System.Console.WriteLine("------------------------------------");
+                System.Console.WriteLine("1: Registrering av uttryckningar");
+                System.Console.WriteLine("2: Rapporter");
+                System.Console.WriteLine("3: Registrering av personal");
+                System.Console.WriteLine("4: InformationMEDSORT???");
+                System.Console.WriteLine("0: Exit");
+                System.Console.WriteLine("------------------------------------");
 
-                Console.WriteLine("1: Registrering av uttryckningar");
-                Console.WriteLine("2: Rapporter");
-                Console.WriteLine("4: InformationMEDSORT???");
-                Console.WriteLine("0: Exit");
-
-                if (int.TryParse(Console.ReadLine(), out val)) // Om valet är en annan än siffran skicka till else
+                if (int.TryParse(System.Console.ReadLine(), out val)) // Om valet är en annan än siffran skicka till else
                 {
                     switch (val)
                     {
@@ -32,21 +34,32 @@ namespace GrupparbetePolisen1984
                             Case2.Rapporter(Brottrapport);
                             break;
 
+                        case 3:
+                            Case3.Personallist(Personal);
+                            break;
+
                         case 4:
-                            Case4.VisaRapporter(Registrering, Brottrapport);
+                            Case4.VisaRapporter(Registrering, Brottrapport, Personal);
                             break;
 
                         case 0:
                             return;
 
                         default:
-                            Console.WriteLine("ERRORTEST"); //FIX *********
+                            System.Console.Clear();
+                            System.Console.WriteLine("------------------------------------");
+                            System.Console.WriteLine("EJ ETT VAL");
+                            System.Console.WriteLine("------------------------------------");
                             break;
                     }
                 }
                 else
                 {
-                    Console.WriteLine("ERRORTESTÄRDETENFÖRMYCKET??"); //FIXIT ********
+                    System.Console.Clear();
+                    System.Console.WriteLine("------------------------------------");
+                    System.Console.WriteLine("ANVÄND EN SIFFRA"); 
+                    System.Console.WriteLine("------------------------------------");
+
                 }
             }
         }
@@ -56,23 +69,25 @@ namespace GrupparbetePolisen1984
     {
         public static void Registrering(List<string> Registrering)
         {
-            Console.WriteLine("Ange typ av brott:");
-            string Typ = Console.ReadLine();
+            System.Console.WriteLine("Ange typ av brott:\n");
+            string Typ = System.Console.ReadLine();
 
-            Console.WriteLine("Ange plats:");
-            string Plats = Console.ReadLine();
+            System.Console.WriteLine("Ange plats:\n");
+            string Plats = System.Console.ReadLine();
 
-            Console.WriteLine("Ange tid (hh:mm)");
+            System.Console.WriteLine("Ange tid (hh:mm):\n");
                 TimeSpan Tid; // TimeSpan nytt och fräscht (TM) 
-                if (!TimeSpan.TryParse(Console.ReadLine(), out Tid))
+                if (!TimeSpan.TryParse(System.Console.ReadLine(), out Tid))
                     {   
-                        Console.Clear();
-                        Console.WriteLine("Ej en giltig tidpunkt! Återgår till val!");
+                        System.Console.Clear();
+                        System.Console.WriteLine("------------------------------------");
+                        System.Console.WriteLine("Ej en giltig tidpunkt! Återgår till val!");
+                        System.Console.WriteLine("------------------------------------");
                         return;
                     }
                     
-                       Console.WriteLine("Ange vilka poliser som deltog:");
-                        string Poliser = Console.ReadLine();
+                       System.Console.WriteLine("Ange vilka poliser som deltog:\n");
+                        string Poliser = System.Console.ReadLine();
 
                         string Rapport = $"{Typ}\n{Plats}\n{Tid}\n{Poliser}\n"; // Skapar en Rapport 
                         Registrering.Add(Rapport); // Sparar Rapport i listan
@@ -84,48 +99,86 @@ namespace GrupparbetePolisen1984
     {
         public static void Rapporter(List<string> Brottrapport)
         {
-            Console.WriteLine("Ange Rapportnummer:");
+            System.Console.WriteLine("Ange Rapportnummer:");
             int Rapportnr; 
-            if (!int.TryParse(Console.ReadLine(), out Rapportnr)) // ! igen ***LÄS*** ! ifall double failar?? VARFÖR INTE TIDIGARE??
+            if (!int.TryParse(System.Console.ReadLine(), out Rapportnr))
             {   
-                Console.Clear();
-                Console.WriteLine("Ej ett rapportnummer försök igen!");
+                System.Console.Clear();
+                System.Console.WriteLine("------------------------------------");
+                System.Console.WriteLine("Ej ett rapportnummer! Återgår till val!");
+                System.Console.WriteLine("------------------------------------");
                 return;
             }
 
-            Console.WriteLine("Ange datum(ÅÅÅÅ-MM-DD):"); 
+            System.Console.WriteLine("Ange datum(ÅÅÅÅ-MM-DD):\n"); 
             DateTime datum; // DateTime Fresher than fresh (TM)
-            if (!DateTime.TryParse(Console.ReadLine(), out datum))
-            {   Console.Clear();
-                Console.WriteLine("Ej ett datum! Återgår till val!");
+            if (!DateTime.TryParse(System.Console.ReadLine(), out datum))
+            {   System.Console.Clear();
+                System.Console.WriteLine("------------------------------------");
+                System.Console.WriteLine("Ej ett datum! Återgår till val!");
+                System.Console.WriteLine("------------------------------------");
                 return;
             }
 
-            Console.WriteLine("Ange polistation:");
-            string polisstation = Console.ReadLine();
+            System.Console.WriteLine("Ange polistation:\n");
+            string polisstation = System.Console.ReadLine();
 
-            Console.WriteLine("Beskriv vad som hände kortfattat:");
-            string beskrivning = Console.ReadLine();
+            System.Console.WriteLine("Beskriv vad som hände kortfattat:\n");
+            string beskrivning = System.Console.ReadLine();
 
-            string Rapport2 = $"{Rapportnr}\n{datum}\n{polisstation}\n{beskrivning}"; // Skapar en Rapport 
-            Brottrapport.Add(Rapport2); // Sparar Rapport i den andra listan ****VARFÖRRAPPORT2INTERAPPORT?****
+            string Rapport = $"{Rapportnr}\n{datum}\n{polisstation}\n{beskrivning}"; // Skapar en Rapport 
+            Brottrapport.Add(Rapport); // Sparar Rapport i den andra listan 
         }
     }
 
+
+static class Case3
+    {
+
+        public static void Personallist(List<string> Personal)
+    {
+
+        System.Console.WriteLine("Skriv in ditt namn:\n");
+        string Personalnm = System.Console.ReadLine();
+
+
+        System.Console.WriteLine("Skriv in ditt ösnakde personalnummer:\n");
+        int Personalnr;
+         if (!int.TryParse(System.Console.ReadLine(), out Personalnr))
+            {   
+                System.Console.Clear();
+                System.Console.WriteLine("------------------------------------");
+                System.Console.WriteLine("Ej ett personal nummer! Återgår till val!");
+                System.Console.WriteLine("------------------------------------");
+                return;
+            }
+        string Rapport = $"{Personalnm}\n{Personalnr}";
+        Personal.Add(Rapport);
+    }
+
+
+    }
     static class Case4
     {
-        public static void VisaRapporter(List<string> Registrering, List<string> Brottrapport)
-        {
-            Console.WriteLine("Rapporter från case 1:"); // SORT här??
+        public static void VisaRapporter(List<string> Registrering, List<string> Brottrapport, List<string> Personal)
+        {   
+            System.Console.WriteLine("------------------------------------");
+            System.Console.WriteLine("Uttryckningar:\n"); // SORT här??
             foreach (string Rapport in Registrering) // in commando som jag hittat online, ****LÄSPÅLÄSPÅ*****
             {
-                Console.WriteLine(Rapport);
+                System.Console.WriteLine(Rapport);
             }
-
-            Console.WriteLine("Rapporter från case 2:");
+            System.Console.WriteLine("------------------------------------");
+            System.Console.WriteLine("Rapporter:\n");
             foreach (string Rapport in Brottrapport)
             {
-                Console.WriteLine(Rapport);
+                System.Console.WriteLine(Rapport);
+            }
+            System.Console.WriteLine("------------------------------------");
+            System.Console.WriteLine("Personal:\n");
+            foreach (string Rapport in Personal)
+            {
+                System.Console.WriteLine(Rapport);
             }
         }
     }
