@@ -27,7 +27,7 @@ namespace GrupparbetePolisen1984
                     switch (val)
                     {
                         case 1:
-                            Case1.Registrering(Registrering);
+                            Case1.Registrering(Registrering); // döp om alla case till UI i en klass
                             break;
 
                         case 2:
@@ -70,14 +70,14 @@ namespace GrupparbetePolisen1984
         public static void Registrering(List<string> Registrering)
         {
             System.Console.WriteLine("Ange typ av brott:\n");
-            string Typ = System.Console.ReadLine();
+            string typ = System.Console.ReadLine();
 
             System.Console.WriteLine("Ange plats:\n");
-            string Plats = System.Console.ReadLine();
+            string plats = System.Console.ReadLine();
 
             System.Console.WriteLine("Ange tid (hh:mm):\n");
-                TimeSpan Tid; // TimeSpan nytt och fräscht (TM) 
-                if (!TimeSpan.TryParse(System.Console.ReadLine(), out Tid))
+                TimeSpan tid; // TimeSpan nytt och fräscht (TM) 
+                if (!TimeSpan.TryParse(System.Console.ReadLine(), out tid))
                     {   
                         System.Console.Clear();
                         System.Console.WriteLine("------------------------------------");
@@ -89,7 +89,7 @@ namespace GrupparbetePolisen1984
                        System.Console.WriteLine("Ange vilka poliser som deltog:\n");
                         string Poliser = System.Console.ReadLine();
 
-                        string Rapport = $"{Typ}\n{Plats}\n{Tid}\n{Poliser}\n"; // Skapar en Rapport 
+                        string Rapport = $"{typ}\n{plats}\n{tid}\n{Poliser}\n"; // Skapar en Rapport 
                         Registrering.Add(Rapport); // Sparar Rapport i listan
             }
         }
